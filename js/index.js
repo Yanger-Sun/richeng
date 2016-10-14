@@ -22,6 +22,7 @@ $(function(){
     $(".cebar").height($(window).height());
     $(".mask").height($(window).height());
     $(".arrive").height($(window).height());
+    $(".devo").height($(window).height());
 
     botHS()
 
@@ -249,6 +250,13 @@ $(function(){
         var trag = $(this).html()
         $(this).html($(".setLan .set-per").html())
         $(".setLan .set-per").html(trag)
+    })
+
+    //查看成长树
+    $(".cebar").on("touchstart",".user",function(){
+        $(".mask").removeClass("open");
+        $(".cebar").removeClass("open");
+        $(".devo").addClass("show")
     })
 
 })

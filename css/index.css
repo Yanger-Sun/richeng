@@ -525,5 +525,13 @@ body {
 
 .devo {
   width: 100%;
+  display: none;
   height: 100%;
-  background: #5C5C66; }
+  background: #5C5C66;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate3d(100%, 0, 0); }
+  .devo.show {
+    display: block;
+    transform: translate3d(0, 0, 0); }
