@@ -24,7 +24,10 @@
         <div class="top">
             <div class="top-left">
                 <div class="menu iconfont icon-menu"></div>
-                <div class="person iconfont icon-down">个人</div>
+                <div class="lanmu">
+                     <div class="person iconfont icon-down">个人</div>
+                     <div class="work iconfont icon-down">工作</div>
+                </div>
             </div>
             <div class="top-right">
                 <div class="tag">
@@ -65,18 +68,27 @@
         </div>
     </div>
     <div class="inputText">
-        <textarea class="infoText"  id="" cols="30" rows="10"></textarea>
+        <div class="setLan">
+            <div class="set-per">个人</div>
+            <div class="set-work">工作</div>
+        </div>
+        <textarea class="infoText"  id="" placeholder="添加新便签" cols="30" rows="10"></textarea>
         <div class="list-time">
-            <div class="hour"><input type="text">时</div>
-            <div class="minutes"><input type="text">分</div>
+            <div>设置时间:</div>
+            <div class="hour">
+                <input type="text">
+                时</div>
+            <div class="minutes">
+                <input type="text">
+                分</div>
         </div>
     </div>
     <div class="end-qu-btn close">
-        <div class="qu">取消</div>
-        <div class="end">确定</div>
+        <div class="qu bottom-btn icon-quxiao">取消</div>
+        <div class="end bottom-btn icon-queding">确定</div>
     </div>
-    <div class="arrive">
-    </div>
+    <!--<div class="arrive">-->
+    <!--</div>-->
     <div class="del-tit">
         <div class="del-squr">
             <div class="del-tit-text">确定要删除吗？</div>
@@ -85,6 +97,9 @@
                 <div class="queding">确定</div>
             </div>
         </div>
+    </div>
+    <div class="devo">
+
     </div>
 </body>
 </html>
