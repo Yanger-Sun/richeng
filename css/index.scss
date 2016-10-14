@@ -1,0 +1,416 @@
+@import "mixin";
+@include userlist(1080px);
+
+*{
+  padding:0;
+  margin:0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body{
+  overflow-x: hidden;
+  font-size: 16px;
+  background: #5C5C66;
+}
+
+@font-face {
+  font-family: "iconfont";
+  src:url(../font/iconfont.woff);
+}
+.iconfont{
+  font-family: "iconfont";
+}
+
+.icon-menu:before { content: "\e619"; }
+.icon-duihao:before { content: "\e60f"; }
+.icon-z-list:before { content: "\e687"; }
+.icon-chengchangtequan:before { content: "\e618"; }
+.icon-down:after {font-family: "iconfont"; content: "\e61f"; }
+.icon-add:before {margin:0 0.4rem; content: "\e644"; }
+.icon-xinxi:before {font-size: 0.63rem; content: "\e668"; }
+.icon-iconhuatong:before { content: "\e63c"; }
+.icon-iconfontcunchu:before {display: block; font-size: 0.52rem;  margin-bottom: 0.32rem;content: "\e620"; }
+.icon-yonghu:before {display: block; font-size: 0.52rem;  margin-bottom: 0.32rem;content: "\e77b"; }
+.icon-shezhi:before {display: block; font-size: 0.52rem;  margin-bottom: 0.32rem;content: "\e649"; }
+.icon-iconfonttuichu:before {display: block; font-size: 0.8rem;  margin: 0.32rem 0; content: "\e61b"; }
+.icon-tupian:before { content: "\e64b"; }
+.icon-weizhi:before { content: "\e638"; }
+.icon-haoyou:before { content: "\e6a8"; }
+.icon-guanli:before { content: "\e60b"; }
+.icon-shijian:before {font-size: 0.8rem; content: "\ec60"; }
+.icon-iconfonticonfontclose:before { content: "\e606"; }
+
+.clock{
+  height:0.78rem;
+  background:#000000;
+}
+.con-top{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:4.63rem;
+}
+.top{
+  height:0.63rem;
+  padding: 0.35rem 0;
+  background: #fff;
+  &>div{
+    float: left;
+  }
+  .top-left{
+    div{
+      float: left;
+    }
+    .menu{
+      width:1.43rem;
+      height:100%;
+      text-align: center;
+      border-right:1px solid #DEDEE8;
+      box-sizing: border-box;
+    }
+    .icon-menu{
+      font-size: 0.5rem;
+      color:#DEDEE8;
+    }
+    .person{
+      padding-left: 0.5rem;
+      line-height: 0.63rem;
+      letter-spacing: 0.03rem;
+      font-family: "微软雅黑";
+    }
+  }
+  .top-right{
+    float: right;
+    div{
+      float: left;
+    }
+    .tag{
+      width:3.11rem;
+      height:0.63rem;
+      border-radius: 0.02rem;
+      border:1px solid #DEDEE8;
+      box-sizing: border-box;
+      &>div{
+        float: left;
+        height:100%;
+        width:50%;
+        text-align: center;
+        line-height: 0.63rem;
+        font-size: 0.4rem;
+        color:#DEDEE8;
+        &.active{
+          color:#000;
+          background:#DEDEE8;
+        }
+      }
+    }
+    .message{
+      height:100%;
+      padding:0 0.50rem;
+      color:#DEDEE8;
+   }
+  }
+}
+.addMess{
+  width:100%;
+  height:2.7rem;
+  background:#9eb75f url(../img/addmess.png) center center no-repeat;
+  background-size: contain;
+  .addbtn{
+    float: left;
+    width:9.9rem;
+    height:1.23rem;
+    margin:0.735rem 0.45rem;
+    border-radius: 0.05rem;
+    color:#ccc;
+    line-height: 1.23rem;
+    background: rgba(255,255,255,0.9);
+  }
+}
+.showNum{
+  width:100%;
+  height:0.6rem;
+  line-height: 0.6rem;
+  font-size: 0.3rem;
+  color:#aaa;
+  background: #5C5C66;
+  padding-left:0.4rem;
+}
+.lists{
+    position: absolute;
+    margin: 4.63rem 0 0.5rem;
+  li{
+    width:100%;
+    height:3.35rem;
+    background: #fff;
+    border-bottom: 1px solid #5C5C66;
+    box-sizing: border-box;
+    .list-info{
+      float: left;
+      width:100%;
+      .contentInfo{
+         height:1.5rem;
+         width:9.9rem;
+         position: relative;
+         margin:0.925rem 0.45rem;
+         div{
+          float: left;
+         }
+         .list-logo{
+           width:1.5rem;
+           height:1.5rem;
+           border-radius: 50%;
+           background: rgba(124, 135, 243, 0.95);
+           margin-right: 0.65rem;
+           text-align: center;
+           color:#fff;
+           line-height: 1.5rem;
+           font-size: 0.8rem;
+           &.end{
+             background: rgba(238, 86, 101, 0.96);
+           }
+         }
+        p{
+          line-height: 0.75rem;
+        }
+        .list-del{
+          position: absolute;
+          bottom:0;
+          top:0;
+          margin:auto;
+          right:0;
+          width:0.8rem;
+          height:0.8rem;
+          line-height: 0.75rem;
+          text-align: center;
+          border: 1px solid #5C5C66;
+          box-sizing: border-box;
+          border-radius: 50%;
+        }
+      }
+    }
+    &.close{
+      transition: all .3s ease;
+     animation: del .3s ease both;
+    }
+    @keyframes del {
+      0%{
+        transform: translate3d(0,0,0);
+      }
+      50%{
+        opacity: 0.7;
+        transform: translate3d(50%,0,0);
+      }
+      100%{
+        opacity: 0;
+        transform: translate3d(100%,0,0);
+      }
+    }
+  }
+}
+.bottom{
+  width:100%;
+  height:5.2rem;
+  position: fixed;
+  bottom:0;
+  left:0;
+  background: url("../img/bottom.png") center center no-repeat;
+  background-size: cover;
+  .bottom-word{
+    font-size:0.4rem;
+    position: absolute;
+    bottom:0;
+    width:100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+}
+.huatong{
+  position: fixed;
+  width:1.5rem;
+  height:1.5rem;
+  bottom:0.72rem;
+  right:0.66rem;
+  border-radius: 50%;
+  background: #EE5665;
+  line-height: 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color:#fff;
+}
+.mask{
+  display: none;
+  &.open{
+    display: block;
+  }
+  width:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background:rgba(0,0,0,0.6);
+}
+.cebar{
+  transform: translate3d(-100%,0,0);
+  transition: all ease 0.5s;
+  &.open{
+    transform: translate3d(0,0,0);
+  }
+  width:2.6rem;
+  position: fixed;
+  left:0;
+  top:0;
+  background: #5C5C66;
+  .logo{
+    width:1.7rem;
+    height:1.7rem;
+    margin:0.45rem 0.45rem 1.2rem;
+    border-radius: 50%;
+    background: url(../img/logo.jpg) center no-repeat;
+    background-size: contain;
+  }
+  div.iconfont{
+    margin-bottom:1.4rem;
+    color:#fff;
+    text-align: center;
+  }
+  .exit{
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:2.55rem;
+    background: #EE5665;
+    &.exit{
+       margin:0;
+    }
+  }
+}
+.inputText{
+  width:100%;
+  transform: translate3d(0,-100%,0);
+  transition: all ease 0.5s;
+  opacity: 0;
+  height:4.04rem;
+  background:#fff;
+  position: fixed;
+  top:0;
+  left:0;
+  .infoText{
+    width:100%;
+    height:70%;
+    font-size: 0.6rem;
+  }
+  .list-time{
+      height:26%;
+    div{
+      height:100%;
+      float:left;
+      width:50%;
+      text-align: center;
+      font-size: 20%;
+        input{
+          font-size: 20%;
+          text-align: center;
+          width:26%;
+          height:100%;
+          margin-right: 1%;
+          border: 1px solid #5C5C66;
+          box-sizing: border-box;
+
+      }
+    }
+  }
+  &.open{
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+.arrive{
+  width:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  height:100%;
+  color:#EE5665;
+  background: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 100rem;
+  transform: translate3d(0,0,0);
+  transition: all ease 0.5s;
+    background: url(../img/yanger.jpg) center center;
+    background-size: cover;
+  &.close{
+    display: none;
+    transform: translate3d(0,-100%,0);
+  }
+}
+.end-qu-btn{
+  width:100%;
+  position: fixed;
+  bottom:0;
+  left:0;
+  height:1rem;
+  background:#fff;
+  div{
+    width:50%;
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 1rem;
+    border-bottom: 1px solid #5C5C66;
+  }
+  .end{
+    background: #EE5665;
+  }
+  &.close{
+    display: none;
+  }
+}
+.del-tit{
+  width:100%;
+  position: absolute;
+  transform: translate3d(0,-100%,0);
+  transition: all ease 0.8s;
+  background: url(../img/delitem.png) center center no-repeat;
+  background-size: contain;
+  &.show{
+    transform: translate3d(0,0,0);
+  }
+  .del-tit-text{
+    width:80%;
+    height:3.62rem;
+    padding-left: 0.35rem;
+    font-size: 0.5rem;
+    line-height: 5rem;
+  }
+  .del-squr{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    width:8.42rem;
+    height:4.56rem;
+    .del-btn{
+      position: absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      height:0.93rem;
+      div{
+        width:50%;
+        text-align: center;
+        line-height: 0.93rem;
+        float: left;
+        &.queding{
+          color:#fff;
+        }
+      }
+    }
+  }
+}
